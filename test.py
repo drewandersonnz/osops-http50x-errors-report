@@ -18,8 +18,8 @@ excludesGrep = '|'.join([
     '"WatchMouse/', '"NodePing"', '; UptimeRobot/', # uptime robots
 ])
 
-# build command
-command = ' | '.join([
+# build top10ips
+top10ips = ' | '.join([
     "egrep '\" 50[0-9]' /var/log/httpd/openshift/openshift_log",
     "grep -Ev '({excludesGrep})'".format(excludesGrep=excludesGrep),
     "grep -E '({datesGrep})'".format(datesGrep=datesGrep),
@@ -30,4 +30,5 @@ command = ' | '.join([
     "tail",
 ])
 
-print(command)
+# output all commands
+print('; '.join([top10ips]) + ';')
