@@ -31,4 +31,8 @@ top10ips = ' | '.join([
 ])
 
 # output all commands
-print('; '.join([top10ips]) + ';')
+print('; '.join([
+    'date',
+    'date -u',
+    top10ips,
+]) + ';')
